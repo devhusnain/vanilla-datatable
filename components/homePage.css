@@ -1,0 +1,155 @@
+.datatable {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--icon-stroke-background-color);
+}
+.datatable__header {
+  height: 100px;
+  background-color: var(--header-color);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.datatable__header th {
+  width: 100px;
+  text-align: center;
+}
+.datatable__header__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.datatable__header__actions th {
+  width: unset;
+}
+.datatable__header__columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+}
+.datatable__header__actions :nth-child(1) {
+  position: relative;
+}
+.datatable__header__actions__search {
+  padding-left: 30px;
+  width: 200px;
+  height: 25px;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  border: 1px solid var(--icon-stroke-background-color);
+}
+.datatable__header__actions__search__icon {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  stroke: #868fa0;
+}
+.datatable__header__actions__search:hover {
+  border: 1px solid var(--icon-stroke-stripes-color);
+}
+.datatable__header__actions__search:focus {
+  outline-color: #01b2ed;
+}
+
+.datatable__header__actions__add {
+  background-color: var(--primary-color);
+  color: white;
+  width: 146px;
+  height: 32px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.datatable__body {
+  width: 100%;
+}
+.datatable__body__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  height: 50px;
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--icon-stroke-background-color);
+  padding: 10px;
+}
+
+.datatable__body__row td {
+  width: 100px;
+  text-align: center;
+}
+
+.pagination {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.pagination button {
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 32px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.pagination button {
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 32px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.datatable__body__row__actions__edit {
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 32px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+}
+
+.datatable__body__row__actions__delete {
+  background-color: var(--primary-color);
+  color: white;
+  width: 50px;
+  height: 32px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+}
+
+.datatable__body__row > td:last-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
