@@ -3,12 +3,12 @@ const Router = {
     document.querySelectorAll("a.navlink").forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        let path = e.target.getAttribute("href");
+        let path = e.target.parentElement.getAttribute("href");
         Router.navigate(path);
       });
     });
 
-    document.addEventListener("popstate", (e) => {
+    window.addEventListener("popstate", (e) => {
       Router.navigate(location.pathname);
     });
 
@@ -30,21 +30,15 @@ const Router = {
         pageElement = document.createElement("add-customer");
         break;
       default:
-        if (path.startsWith("/customer-detail-")) {
+        if (path?.startsWith("/edit-customer-")) {
           const customerId = path.split("-")[2];
           if (customerId) {
-            pageElement = document.createElement("customer-detail-page");
-            pageElement.dataset.customerId = customerId;
-          }
-        }
-        if (path.startsWith("/edit-customer-")) {
-          const customerId = path.split("-")[2];
-          if (customerId) {
-            pageElement = document.createElement("edit-customer-page");
+            pageElement = document.createElement("edit-customer");
             pageElement.dataset.customerId = customerId;
           }
         }
     }
+    app.store.onlyLoadOnce = true;
     if (pageElement) {
       const app = document.querySelector("main");
       app.innerHTML = "";

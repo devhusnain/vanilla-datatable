@@ -18,15 +18,58 @@
   </head>
   <body>
     <header class="header">
-      <a href="/" class="header__link">
-        <img src="assets/icons/logo.svg" alt="logo" class="header__logo" />
-      </a>
+      <nav>
+        <a href="/" class="navlink header__link">
+          <img src="assets/icons/logo.svg" alt="logo" class="header__logo" />
+        </a>
+      </nav>
       <h1 class="header__text">Vanilla Datatable</h1>
     </header>
     <main></main>
     <template id="home-page-template">
       <table class="datatable" id="datatable"></table>
     </template>
-    <template id="add-customer-page"> </template>
+    <template id="add-customer-page">
+      <div class="main__wrapper">
+        <form class="form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+          <div class="custom-select-container">
+            <div class="custom-select">
+              <div class="custom-select-trigger">Select an avatar</div>
+              <div class="custom-options">
+                <!-- Options will be dynamically inserted here -->
+              </div>
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </template>
+    <template id="edit-customer-page">
+      <div class="main__wrapper">
+        <form class="form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+          <div class="custom-select-container">
+            <div class="custom-select">
+              <div class="custom-select-trigger">Select an avatar</div>
+              <div class="custom-options">
+                <!-- Options will be dynamically inserted here -->
+              </div>
+            </div>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </template>
   </body>
 </html>

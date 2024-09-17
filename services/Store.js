@@ -1,5 +1,7 @@
 const Store = {
   Totalcustomers: null,
+  TotalcustomersCopy: null,
+  onlyLoadOnce: true,
   pagination: {
     currentPage: 1,
     itemsPerPage: 5,
@@ -36,6 +38,38 @@ const Store = {
         end = this.currentPage * this.itemsPerPage;
       }
       this.customers = Store.Totalcustomers.slice(start, end);
+    },
+  },
+  functions: {
+    fetchData: async () => {
+      const response = await fetch("https://api.escuelajs.co/api/v1/users");
+      const data = await response.json();
+      return data;
+    },
+    loadData: async () => {
+      const data = await Store.functions.fetchData();
+      data.sort((a, b) => b.id - a.id);
+      const dataUsable = data.splice(0, 15);
+      proxiedStore.Totalcustomers = dataUsable;
+      proxiedStore.TotalcustomersCopy = dataUsable;
+    },
+    deleteUser: async (id) => {
+      if (confirm("Are you sure you want to delete this user?")) {
+        const response = await fetch(
+          `https://api.escuelajs.co/api/v1/users/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
+        const data = await response.json();
+        if (data) {
+          const newCustomers = Store.Totalcustomers.filter(
+            (customer) => customer.id !== id
+          );
+          proxiedStore.Totalcustomers = newCustomers;
+          proxiedStore.TotalcustomersCopy = newCustomers;
+        }
+      }
     },
   },
 };
